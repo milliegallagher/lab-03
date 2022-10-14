@@ -380,7 +380,31 @@ laureates.</p>
 <h3>Exercise 2</h3>
 <div id="code" class="section level4">
 <h4>Code</h4>
-<pre class="r"><code># remove this comment and add your code here</code></pre>
+<pre class="r"><code># nobel_living &lt;- 
+  nobel %&gt;% 
+  filter(country != &quot;NA&quot;, 
+         gender != &quot;org&quot;, 
+         is.na(died_date))</code></pre>
+<pre><code>## # A tibble: 228 × 26
+##       id firstname   surname    year category affilia…¹ city  country born_date 
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;date&gt;    
+##  1    68 Chen Ning   Yang       1957 Physics  Institut… Prin… USA     1922-09-22
+##  2    69 Tsung-Dao   Lee        1957 Physics  Columbia… New … USA     1926-11-24
+##  3    95 Leon N.     Cooper     1972 Physics  Brown Un… Prov… USA     1930-02-28
+##  4    97 Leo         Esaki      1973 Physics  IBM Thom… York… USA     1925-03-12
+##  5    98 Ivar        Giaever    1973 Physics  General … Sche… USA     1929-04-05
+##  6    99 Brian D.    Josephson  1973 Physics  Universi… Camb… United… 1940-01-04
+##  7   101 Antony      Hewish     1974 Physics  Universi… Camb… United… 1924-05-11
+##  8   103 Ben R.      Mottelson  1975 Physics  Nordita   Cope… Denmark 1926-07-09
+##  9   106 Samuel C.C. Ting       1976 Physics  Massachu… Camb… USA     1936-01-27
+## 10   107 Philip W.   Anderson   1977 Physics  Bell Tel… Murr… USA     1923-12-13
+## # … with 218 more rows, 17 more variables: died_date &lt;date&gt;, gender &lt;chr&gt;,
+## #   born_city &lt;chr&gt;, born_country &lt;chr&gt;, born_country_code &lt;chr&gt;,
+## #   died_city &lt;chr&gt;, died_country &lt;chr&gt;, died_country_code &lt;chr&gt;,
+## #   overall_motivation &lt;chr&gt;, share &lt;dbl&gt;, motivation &lt;chr&gt;,
+## #   born_country_original &lt;chr&gt;, born_city_original &lt;chr&gt;,
+## #   died_country_original &lt;chr&gt;, died_city_original &lt;chr&gt;, city_original &lt;chr&gt;,
+## #   country_original &lt;chr&gt;, and abbreviated variable name ¹​affiliation</code></pre>
 </div>
 <div id="narrative-1" class="section level4">
 <h4>Narrative</h4>
@@ -391,7 +415,6 @@ laureates.</p>
 <h3>Exercise 3</h3>
 <div id="code-1" class="section level4">
 <h4>Code</h4>
-<pre class="r"><code># remove this comment and add your code here</code></pre>
 </div>
 <div id="narrative-2" class="section level4">
 <h4>Narrative</h4>

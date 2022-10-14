@@ -28,7 +28,11 @@ nobel <- read_csv("data/nobel.csv")
 #### Code
 
 ```{r nobel-living}
-# remove this comment and add your code here
+# nobel_living <- 
+  nobel %>% 
+  filter(country != "NA", 
+         gender != "org", 
+         is.na(died_date))
 ```
 
 #### Narrative
@@ -41,7 +45,6 @@ nobel <- read_csv("data/nobel.csv")
 #### Code
 
 ```{r facet-bar-plot}
-# remove this comment and add your code here
 ```
 
 #### Narrative
