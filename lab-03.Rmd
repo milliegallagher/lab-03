@@ -30,7 +30,7 @@ nobel <- read_csv("data/nobel.csv")
 ```{r nobel-living}
 # nobel_living <- 
   nobel %>% 
-  filter(country != "NA", 
+  filter( !is.na(country), 
          gender != "org", 
          is.na(died_date))
 ```
