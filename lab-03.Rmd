@@ -28,7 +28,8 @@ nobel <- read_csv("data/nobel.csv")
 #### Code
 
 ```{r nobel-living}
-# nobel_living <- 
+
+nobel_living <- 
   nobel %>% 
   filter( !is.na(country), 
          gender != "org", 
@@ -37,7 +38,6 @@ nobel <- read_csv("data/nobel.csv")
 
 #### Narrative
 
-*Remove this text and add your answer here.*
 
 
 ### Exercise 3
@@ -45,8 +45,18 @@ nobel <- read_csv("data/nobel.csv")
 #### Code
 
 ```{r facet-bar-plot}
+nobel_living <- nobel_living %>%
+  mutate(
+    country_us = if_else(country == "USA", "USA", "Other")
+  )
+nobel_living_science <- nobel_living %>%
+  filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
+nobel_living_science %>% 
+  ggplot() +
+  geom_bar(mapping = aes(x=country_us)) +
+  facet_wrap(~category) +
+  coord_flip()
 ```
-
 #### Narrative
 
 *Remove this text and add your answer here.*
@@ -57,9 +67,13 @@ nobel <- read_csv("data/nobel.csv")
 #### Code
 
 ```{r born-country-us}
-# remove this comment and add your code here
+  nobel%>%
+  mutate(born_country_us = 
+           if_else(born_country == "USA", "USA", "Other")) %>%
+  filter(born_country_us == "USA")
 ```
 
+271 x 27
 
 ### Exercise 5
 
@@ -70,7 +84,18 @@ nobel <- read_csv("data/nobel.csv")
 #### Code
 
 ```{r facet-bar-plot-redo}
-# remove this comment and add your code here
+nobel_living <- nobel_living %>%
+  mutate(country_us = if_else(country == "USA", "USA", "Other"), born_country_us = if_else(born_country == "USA", "USA", "Other"))
+    
+nobel_living_science <- nobel_living %>%
+  filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
+
+nobel_living_science %>% 
+  ggplot() +
+  geom_bar(mapping = aes(x=country_us, fill=born_country_us)) +
+  facet_wrap(~category) +
+  coord_flip()
+  
 ```
 
 
@@ -79,7 +104,12 @@ nobel <- read_csv("data/nobel.csv")
 #### Code
 
 ```{r born-country}
-# remove this comment and add your code here
+nobel %>%
+  filter(country == "USA", born_country != "USA") %>%
+  ggplot() +
+  geom_bar(mapping= aes(x = fct_infreq(born_country))) +
+             coord_flip()
+
 ```
 
 #### Narrative
